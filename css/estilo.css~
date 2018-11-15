@@ -1,0 +1,184 @@
+
+@font-face {
+	font-family:miFuente;
+	src: url(PERRYGOT.ttf);
+}
+
+body {
+	background-color: #d6d6d6;
+}
+
+
+#principal {
+	width: 100%;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+}
+
+
+#cabecera {
+	background-color: #FFFFFF;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#cabecera h1{
+	text-align: center;
+	font-family: miFuente;
+}
+
+#menu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+#menu ul li{
+    float:left; 
+}
+
+#menu ul li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+
+
+#menu ul li a:hover{
+    color: #FFFFFF;
+	background: #111;
+	text-decoration:none;
+}
+
+
+#menu ul li a:focus{
+    color: #FFFFFF;
+	background: #111;
+	text-decoration:none;
+}
+
+
+#cuerpo{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px; 
+	background-color: #FFFFFF;
+	text-align: center;
+}
+
+
+
+#cuerpo h2{
+	text-align: center;
+}
+
+#cuerpo h3{
+	text-align: center;
+	font-size: 40px;
+}
+
+#pie{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px; 
+	background-color: #FFFFFF;
+	text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+	#menu ul li {
+	float: none;
+	width: 100%
+	}
+	
+	img {
+	width: 100%;
+	height: auto;
+	}
+}
+
+#contacto {
+text-align: center;
+}
+
+#boton1 {
+	 			display: none; 
+	 			position: fixed; 
+	 			bottom: 10px; 
+			   right: 15px; 
+			   z-index: 99; 
+			   border: none; 
+			   outline: none; 
+			   background-color: transparent;
+			   color: white;
+			   cursor: pointer; 
+			      
+			}
+
+#menu ul li:first-child {
+display: none;
+
+}
+
+@media screen and (max-width: 600px) {
+	img{
+		width: 100%;	
+		height: auto;
+	}
+	
+	iframe{
+		width: 100%;	
+		height: auto;
+	}
+	
+	#contenido{
+    padding-top: 40px;	
+	}
+	
+	#menu ul{
+		padding: 15px;	
+	}
+
+	#menu ul li {
+		float: none;
+		width: 100%;
+		display: none;
+	}
+	
+	#menu ul li:first-child {
+		float: none;
+		width: 100%;
+		display: block;
+	}
+	
+	#menu ul li:first-child a{
+		text-align: right;
+	}
+	
+	
+	#menu.menuAbierto ul li{
+		display: block;	
+	}
+	
+	
+
+}
+
+
+
+
+
+
+
+
+
+

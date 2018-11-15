@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta name="description" content="En estos videojuegos el jugador controla un grupo de personajes que deben ir superando batallas que consisten en mover a los luchadores por un escenario dividido en casillas y atacar a los contendientes del bando contrario con armas, habilidades, hechizos, etc." />
+		<meta name="keywords" content="RPG, Wasteland 2, Fire Emblem: Radiant Dawn, God Wars Future Past" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>RPG Maniacs</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+		<link href="css/estilo.css" rel="stylesheet" type="text/css">
+		
+	<script src="js/jquery-3.3.1.min.js"></script>
+		
+		<script type="text/javascript">
+		
+		$(document).ready(function () {
+		
+		
+			
+			$("#cabecera").hide();
+			$("#menu").hide();
+			$("#cuerpo").hide();
+			$("#pie").hide();
+			
+			$("#cabecera").show(3000);
+			
+			
+			$("#menu").fadeIn(3000);
+			
+			$("#pie").fadeIn(3000);
+			
+			
+			$("#cuerpo").slideDown(6000);
+			
+			
+			$("#cuerpo img").mouseenter(function () {
+				$(this).animate({width:'+=200'}, 1000);
+				$(this).animate({width:'-=200'}, 1000);
+				
+			});
+			
+	
+			
+			
+		});
+		
+					
+		
+			function inicio() {
+				
+	
+				window.onscroll = function() {fijarmenu();  scrollFunction()};
+	
+				var navbar = document.getElementById("menu");
+				var sticky = navbar.offsetTop;
+				
+				function fijarmenu() 
+				{
+	  				if (window.pageYOffset >= sticky) 
+	  				{
+	    				
+	    				//navbar.classList.add("sticky");
+	    				navbar.style.position = "fixed";
+						navbar.style.top = "0";
+						
+						var ancho = navbar.parentNode.offsetWidth;
+						
+						
+						navbar.style.width = ancho + "px";
+	    				
+	  				} 
+	  				else 
+	  				{
+	    				//navbar.classList.remove("sticky");
+	    				navbar.style.position = "relative";
+	  				}
+				}
+				
+				window.onresize = function () {
+					if (screen.width > 600) {
+			
+			    		var menu = document.getElementById("menu");
+			    		
+			    		menu.className = "";
+			    		
+			    		
+			    		
+			    		var listaMenu = menu.getElementsByTagName("ul")[0];
+			    	
+			    		var elementosMenu = listaMenu.getElementsByTagName("li");
+			    		
+						var icono = elementosMenu[0].getElementsByTagName("a")[0];
+						
+						icono.onclick = function() {abrirMenu();};
+						
+						icono.getElementsByTagName("i")[0].className = "fa fa-bars";
+			    	}
+				}
+				
+				
+		}
+		
+		
+		
+		
+		function scrollFunction() {
+			    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			        document.getElementById("boton1").style.display = "block";
+			    } else {
+			        document.getElementById("boton1").style.display = "none";
+			    }
+			}
+			
+			
+			function subir() {
+			    document.body.scrollTop = 0; 
+			    document.documentElement.scrollTop = 0; 
+			}
+		
+		
+		
+		
+		function abrirMenu() {
+			
+			
+    		var menu = document.getElementById("menu");
+    		
+    		if (menu.className == "") 
+    		{
+    			
+    			var alturaMenu = menu.offsetHeight;
+        		menu.className += "menuAbierto";
+        		
+        		
+    	
+    			var elementosMenu = menu.getElementsByTagName("li");
+    	
+    			var i;
+    			for (i=1; i < elementosMenu.length; i++) 
+    			{
+    				elementosMenu[i].onclick = function() {cerrarMenu();};
+    				
+    				var enlace = elementosMenu[i].getElementsByTagName("a")[0];
+    				
+    				
+    				if (i == 1)
+    				{
+    					enlace.onclick = function (event) {
+    														event.preventDefault();
+    														document.location.href = this.href;
+    														document.documentElement.scrollTop = 0;	
+    					
+    														}
+    				}
+    				else 
+    				{
+    					enlace.onclick = function (event) {
+    														event.preventDefault();
+    														document.location.href = this.href;
+    														document.documentElement.scrollTop -= alturaMenu+80;	
+    					
+    														}
+    				}	
+    		
+
+    			}
+    			
+    			var icono = elementosMenu[0].getElementsByTagName("a")[0];
+    			
+    			icono.onclick = function() {cerrarMenu();};
+    			
+    			icono.getElementsByTagName("i")[0].className = "fa fa-close";
+        		
+    		} 
+		}
+	
+		function cerrarMenu() {
+	    		var menu = document.getElementById("menu");
+	    		
+	    		if (menu.className == "menuAbierto") {
+	        		menu.className = "";
+	        		
+	        		
+	    	
+	    			var elementosMenu = menu.getElementsByTagName("li");
+	    	
+	    			var i;
+	    			for (i=1; i < elementosMenu.length; i++) 
+	    			{
+	    				elementosMenu[i].onclick = function() {};
+	    			}
+	    			
+	    			
+	    			var icono = elementosMenu[0].getElementsByTagName("a")[0];
+	    			
+	    			icono.onclick = function() {abrirMenu();};
+	    			
+	    			icono.getElementsByTagName("i")[0].className = "fa fa-bars";
+	    		}
+	
+		}
+		
+		
+		</script>
+	
+	</head>
+	
+	<body onload="inicio();">
+	
+		<div id="principal">
+		
+			<div id ="cabecera">
+			
+				<h1>RPG MANIACS</h1>
+
+			</div>
+			
+			<div id ="menu">
+			
+			   <ul>
+			   
+			<li>
+			<a href="#" class="iconoMenu" onclick="abrirMenu()">
+	    	<i class="fa fa-bars"></i>
+	  		</a>
+	  		</li>
+			   
+		        <li><a href="index.html" >Inicio</a></li>
+		        <li><a href="subtema1.html" >RPG por turnos</a></li>
+		        <li><a href="subtema2.html" >RPG Acción</a></li>
+		        <li><a href="subtema3.html" >RPG Táctico</a></li>
+		       
+			   </ul>
+			   
+			</div>
+			
+			<div id ="cuerpo">
+			
+				<h2>RPG Táctico</h2>
+				<h3> Wasteland 2 </h3>
+				<img src="img/tactico1.jpg" width="700" height="500" alt="Wasteland 2">
+				<p style="text-align: center;">El espíritu de la saga Wasteland se ha preservado en su segunda entrega, pero con un estilo más moderno para los fans de hoy día. Sumérgete en combates tácticos por turnos que pondrán al límite tus habilidades como estratega mientras luchas por sobrevivir en un mundo desolado, donde la fuerza bruta no será suficiente para salvarte. Crea una escuadra de Rangers a tu medida con el arsenal más devastador y prepárate para una destrucción masiva desarrollando a tus personajes al más puro estilo RPG y con el nivel de personalización que hizo a Wasteland tan especial.</p>
+				
+				
+				<h3> Fire Emblem: Radiant Dawn </h3>
+				<img src="img/tactico2.jpg" width="700" height="500" alt="Fire Emblem: Radiant Dawn">
+				<p style="text-align: center;">Han pasado tres años desde que el reino septentrional de Daein invadió la vecina Crimea e inició una guerra que estuvo a punto de arrasar el continente de Tellius.
+				Pero Daein fue derrotado y, tras coronar a la hija de su difunto Rey, Crimea inició el proceso de reconstrucción. Por su parte, Daein quedó bajo el gobierno del poderoso Imperio Begnion.
+				Cada nación dio sus primeros y vacilantes pasos hacia la recuperación pero, como un espejo roto, lo que se ha fragmentado no puede volver a unirse.
+				Daein, aplastado por la tiránica ocupación del ejército de Begnion, ha perdido toda esperanza de ver nacer una nueva era de libertad.
+				Un grupo de jóvenes revolucionarios, decididos a liberar Daein del yugo de Begnion, forma la Brigada del Alba en las calles de la capital, Nevassa. El objetivo de estos jóvenes que luchan por la libertad es, sobre todo, salvar la vida de sus compatriotas. Su pequeño acto de rebelión desencadena una serie de acontecimientos que sacudirán el continente entero...</p>
+
+
+				<h3> God Wars Future Past </h3>
+				<img src="img/tactico3.jpg" width="700" height="500" alt="God Wars Future Past">
+				<p style="text-align: center;">Una historia de Dioses que nadie conoce.
+				Un RPG táctico que representa los conflictos y los jóvenes héroes del antiguo Japón.
+				Una aventura que mezcla el mundo de Kojiki, el más antiguo libro de la historia de Japón, con los cuentos de hadas del folklore japonés.
+				La increíble saga de los valientes héroes que lucharon contra su destino y la ira de los dioses, por fin ha sido revelada.</p>
+				</div>
+			
+			
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	<script>
+		function validar() {
+		
+		
+			var nombre = document.getElementsByName("Nombre")[0].value;
+    
+    		if(nombre.length == 0)
+    		{
+    			alert("Debe rellenar el nombre");
+        		return false;
+    		}
+			if(!(/^[A-Za-zÀ-ÿ\_\-\.\s\xF1\xD1]+$/.test(nombre)))
+    		{
+				alert("El nombre solo puede contener letras, espacios y guiones");
+				return false; 		
+    		}
+	
+	
+	
+	
+	
+			var apellido = document.getElementsByName("Apellidos")[0].value;
+    
+    		if(apellido.length == 0)
+    		{
+    			alert("Debe rellenar el apellido");
+        		return false;
+    		}
+    		if(!(/^[A-Za-zÀ-ÿ\_\-\.\s\xF1\xD1]+$/.test(nombre)))
+    		{
+				alert("El nombre solo puede contener letras, espacios y guiones");
+				return false; 		
+    		}
+    		
+    		
+    		
+    		
+    		
+    		
+    		var email = document.getElementsByName("Email")[0].value;
+    
+    		if(email.length == 0)
+    		{
+    			alert("Debe rellenar el email");
+        		return false;
+    		}
+    		
+    		if(!(/^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(email)))
+    		{
+				alert("Dirección email incorrecta");
+				return false; 		
+    		}
+    		
+    		
+    		
+    		
+    		
+    		
+    		var mensaje = document.getElementsByName("Mensaje")[0].value;
+    
+    		if(mensaje.length == 0)
+    		{
+    			alert("Debe rellenar el mensaje a enviar");
+        		return false;
+    		}
+    		if(!(/^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(email)))
+    		{
+				alert("Mensaje incorrecto");
+				return false; 		
+    		}
+    		
+    		
+    		
+    		var genero = document.getElementsByName("genero");
+    
+    		var i;
+    		var correcto = false;
+    		for(i=0; i<genero.length; i++)
+    		{
+    			if(genero[i].checked)
+    			{
+        			correcto = true;
+    			}
+    		}
+    
+    		if (correcto == false)
+    		{
+    			alert("Debe pulsar algún botón de opción");
+    			return false;
+    		}
+    		
+    		
+    		
+    	}
+	
+
+
+	</script>
+
+
+
+
+
+
+	<div id="contacto">
+	
+	<form action="" onsubmit="return validar()">
+	
+	Nombre: <br>	
+	<input type="text" name="Nombre" value="">
+  <br>
+  <br>
+   Apellidos: <br>
+   <input type="text" name="Apellidos" value="">
+  <br>
+  <br>
+  Email: <br>
+  <input type="text" name="Email" value="">
+  <br>
+  <br>
+  Mensaje: <br>
+  <textarea name="Mensaje" rows="10" cols="30">
+  
+  </textarea>
+  <br>
+  <br>
+  <br>
+  
+  
+  Género Favorito:
+  <br>
+  <input type="radio" name="genero" value="">RPG Acción <br>
+  <input type="radio" name="genero" value="">RPG Turnos <br>
+  <input type="radio" name="genero" value="">RPG Táctico <br>
+  
+  
+
+  <br>
+  <br>
+  
+	<input type="submit" value="Envio">	
+	
+	</form>
+	
+	
+	</div>			
+			
+			
+			
+			<div id ="pie">
+				
+				<p>&copy; Página realizada por D.J.R. en 2018.</p>
+				
+			</div>
+
+
+
+	
+		</div>
+
+	<button onclick="subir()" id="boton1" title="Ir hacia arriba">
+			<img src="img/flecha1.png" alt="">
+	</button>
+	
+	
+	</body>
+
+</html>

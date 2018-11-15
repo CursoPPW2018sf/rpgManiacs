@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="description" content="El uso de la sigla RPG, se vincula a la expresión inglesa role playing game (“juego de rol”). Se trata de un juego que lleva a los participantes a asumir un rol o papel, interpretando a un personaje. De este modo los jugadores se desenvuelven en historias ficticias que se van construyendo a partir de las decisiones que toman los distintos participantes." />
+		<meta name="keywords" content="RPG, Videojuegos, Rol" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>RPG Maniacs</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+		<link href="css/estilo.css" rel="stylesheet" type="text/css">
+		
+	<script src="js/jquery-3.3.1.min.js"></script>
+		
+		<script type="text/javascript">
+		
+		$(document).ready(function () {
+		
+		
+			
+			$("#cabecera").hide();
+			$("#menu").hide();
+			$("#cuerpo").hide();
+			$("#pie").hide();
+			
+			$("#cabecera").show(3000);
+			
+			
+			$("#menu").fadeIn(3000);
+			
+			$("#pie").fadeIn(3000);
+			
+			
+			$("#cuerpo").slideDown(6000);
+			
+			
+			$("#cuerpo img").mouseenter(function () {
+				$(this).animate({width:'+=200'}, 1000);
+				$(this).animate({width:'-=200'}, 1000);
+				
+			});
+			
+	
+			
+			
+		});
+		
+					
+		
+			function inicio() {
+				
+	
+				window.onscroll = function() {fijarmenu();  scrollFunction()};
+	
+				var navbar = document.getElementById("menu");
+				var sticky = navbar.offsetTop;
+				
+				function fijarmenu() 
+				{
+	  				if (window.pageYOffset >= sticky) 
+	  				{
+	    				
+	    				//navbar.classList.add("sticky");
+	    				navbar.style.position = "fixed";
+						navbar.style.top = "0";
+						
+						var ancho = navbar.parentNode.offsetWidth;
+						
+						
+						navbar.style.width = ancho + "px";
+	    				
+	  				} 
+	  				else 
+	  				{
+	    				//navbar.classList.remove("sticky");
+	    				navbar.style.position = "relative";
+	  				}
+				}
+				
+				window.onresize = function () {
+					if (screen.width > 600) {
+			
+			    		var menu = document.getElementById("menu");
+			    		
+			    		menu.className = "";
+			    		
+			    		
+			    		
+			    		var listaMenu = menu.getElementsByTagName("ul")[0];
+			    	
+			    		var elementosMenu = listaMenu.getElementsByTagName("li");
+			    		
+						var icono = elementosMenu[0].getElementsByTagName("a")[0];
+						
+						icono.onclick = function() {abrirMenu();};
+						
+						icono.getElementsByTagName("i")[0].className = "fa fa-bars";
+			    	}
+				}
+				
+				
+		}
+		
+		
+		
+		
+		function scrollFunction() {
+			    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			        document.getElementById("boton1").style.display = "block";
+			    } else {
+			        document.getElementById("boton1").style.display = "none";
+			    }
+			}
+			
+			
+			function subir() {
+			    document.body.scrollTop = 0; 
+			    document.documentElement.scrollTop = 0; 
+			}
+		
+		
+		
+		
+		function abrirMenu() {
+			
+			
+    		var menu = document.getElementById("menu");
+    		
+    		if (menu.className == "") 
+    		{
+    			
+    			var alturaMenu = menu.offsetHeight;
+        		menu.className += "menuAbierto";
+        		
+        		
+    	
+    			var elementosMenu = menu.getElementsByTagName("li");
+    	
+    			var i;
+    			for (i=1; i < elementosMenu.length; i++) 
+    			{
+    				elementosMenu[i].onclick = function() {cerrarMenu();};
+    				
+    				var enlace = elementosMenu[i].getElementsByTagName("a")[0];
+    				
+    				
+    				if (i == 1)
+    				{
+    					enlace.onclick = function (event) {
+    														event.preventDefault();
+    														document.location.href = this.href;
+    														document.documentElement.scrollTop = 0;	
+    					
+    														}
+    				}
+    				else 
+    				{
+    					enlace.onclick = function (event) {
+    														event.preventDefault();
+    														document.location.href = this.href;
+    														document.documentElement.scrollTop -= alturaMenu+80;	
+    					
+    														}
+    				}	
+    		
+
+    			}
+    			
+    			var icono = elementosMenu[0].getElementsByTagName("a")[0];
+    			
+    			icono.onclick = function() {cerrarMenu();};
+    			
+    			icono.getElementsByTagName("i")[0].className = "fa fa-close";
+        		
+    		} 
+		}
+	
+		function cerrarMenu() {
+	    		var menu = document.getElementById("menu");
+	    		
+	    		if (menu.className == "menuAbierto") {
+	        		menu.className = "";
+	        		
+	        		
+	    	
+	    			var elementosMenu = menu.getElementsByTagName("li");
+	    	
+	    			var i;
+	    			for (i=1; i < elementosMenu.length; i++) 
+	    			{
+	    				elementosMenu[i].onclick = function() {};
+	    			}
+	    			
+	    			
+	    			var icono = elementosMenu[0].getElementsByTagName("a")[0];
+	    			
+	    			icono.onclick = function() {abrirMenu();};
+	    			
+	    			icono.getElementsByTagName("i")[0].className = "fa fa-bars";
+	    		}
+	
+		}
+		
+		
+		</script>
+		
+	</head>
+	
+	<body onload="inicio();">
+	
+		<div id="principal">
+		
+			<div id ="cabecera">
+			
+				<h1>RPG MANIACS</h1>
+
+			</div>
+			
+			<div id ="menu">
+			
+			   <ul>
+			   
+			<li>
+			<a href="#" class="iconoMenu" onclick="abrirMenu()">
+	    	<i class="fa fa-bars"></i>
+	  		</a>
+	  		</li>
+			   
+		        <li><a href="index.html" >Inicio</a></li>
+		        <li><a href="subtema1.html" >RPG por turnos</a></li>
+		        <li><a href="subtema2.html" >RPG Acción</a></li>
+		        <li><a href="subtema3.html" >RPG Táctico</a></li>
+		        
+			   </ul>
+			   
+			</div>
+			
+			<div id ="cuerpo">
+			
+				<h2>Introducción</h2>
+				<p>El uso de la sigla RPG, se vincula a la expresión inglesa role playing game (“juego de rol”). Se trata de un juego que lleva a los participantes a asumir un rol o papel, interpretando a un personaje. De este modo los jugadores se desenvuelven en historias ficticias que se van construyendo a partir de las decisiones que toman los distintos participantes.</p>
+				<p>Los RPG se hicieron muy populares a partir de su llegada al campo de los videojuegos. Es posible jugar RPG en un ordenador o en diferentes videoconsolas. “Final Fantasy” y “World of Warcraft” son algunos de los RPG digitales más populares, con diferentes versiones que se lanzaron a lo largo de la historia.</p>
+				<p>Dentro de los videojuegos RPG tenemos que exponer que hay dos tipos que son los que más éxito consiguen en todo el mundo. Nos estamos refiriendo a los tácticos, que requieren mucho tiempo de juego y que destacan por su dificultad pues el jugador tiene que hacer uso de su inteligencia y capacidad de estrategia, y a los de acción. Estos, como su propio nombre indica, están más centrados en lo que es el combate, la violencia en sí.</p>
+				
+				
+				
+			</div>
+			
+			
+			<div id ="pie">
+				
+				<p>&copy; Página realizada por D.J.R. en 2018.</p>
+				
+			</div>
+
+
+
+	
+		</div>
+
+	<button onclick="subir()" id="boton1" title="Ir hacia arriba">
+			<img src="img/flecha1.png" alt="">
+	</button>
+	
+	</body>
+
+</html>

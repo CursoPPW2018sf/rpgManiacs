@@ -1,0 +1,9 @@
+USer agent:*
+
+Disallow:/img
+
+Disallow: /css
+
+Disaloow: /js
+
+sitemap: https://rpgsmaniacs.000webhostapp.com/index.html/sitemap.xml

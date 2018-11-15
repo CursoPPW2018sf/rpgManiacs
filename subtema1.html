@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="description" content="El combate se realiza por turnos, aunque cada juego establece sus propias normas al respecto. Algunos permiten una cantidad de acciones determinadas por cada asalto; otros, prestan mayor importancia a la acción indicando el tiempo preciso para actuar, etc." />
+		<meta name="keywords" content="RPG, Suikoden 2, Final Fantasy X, El Señor De Los Anillos: La Tercera Edad" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>RPG Maniacs</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+		<link href="css/estilo.css" rel="stylesheet" type="text/css">
+		
+	<script src="js/jquery-3.3.1.min.js"></script>
+		
+		<script type="text/javascript">
+		
+		$(document).ready(function () {
+		
+		
+			
+			$("#cabecera").hide();
+			$("#menu").hide();
+			$("#cuerpo").hide();
+			$("#pie").hide();
+			
+			$("#cabecera").show(3000);
+			
+			
+			$("#menu").fadeIn(3000);
+			
+			$("#pie").fadeIn(3000);
+			
+			
+			$("#cuerpo").slideDown(6000);
+			
+			
+			$("#cuerpo img").mouseenter(function () {
+				$(this).animate({width:'+=200'}, 1000);
+				$(this).animate({width:'-=200'}, 1000);
+				
+			});
+			
+	
+			
+			
+		});
+		
+					
+		
+			function inicio() {
+				
+	
+				window.onscroll = function() {fijarmenu();  scrollFunction()};
+	
+				var navbar = document.getElementById("menu");
+				var sticky = navbar.offsetTop;
+				
+				function fijarmenu() 
+				{
+	  				if (window.pageYOffset >= sticky) 
+	  				{
+	    				
+	    				//navbar.classList.add("sticky");
+	    				navbar.style.position = "fixed";
+						navbar.style.top = "0";
+						
+						var ancho = navbar.parentNode.offsetWidth;
+						
+						
+						navbar.style.width = ancho + "px";
+	    				
+	  				} 
+	  				else 
+	  				{
+	    				//navbar.classList.remove("sticky");
+	    				navbar.style.position = "relative";
+	  				}
+				}
+				
+				window.onresize = function () {
+					if (screen.width > 600) {
+			
+			    		var menu = document.getElementById("menu");
+			    		
+			    		menu.className = "";
+			    		
+			    		
+			    		
+			    		var listaMenu = menu.getElementsByTagName("ul")[0];
+			    	
+			    		var elementosMenu = listaMenu.getElementsByTagName("li");
+			    		
+						var icono = elementosMenu[0].getElementsByTagName("a")[0];
+						
+						icono.onclick = function() {abrirMenu();};
+						
+						icono.getElementsByTagName("i")[0].className = "fa fa-bars";
+			    	}
+				}
+				
+				
+		}
+		
+		
+		
+		
+		function scrollFunction() {
+			    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			        document.getElementById("boton1").style.display = "block";
+			    } else {
+			        document.getElementById("boton1").style.display = "none";
+			    }
+			}
+			
+			
+			function subir() {
+			    document.body.scrollTop = 0; 
+			    document.documentElement.scrollTop = 0; 
+			}
+		
+		
+		
+		
+		function abrirMenu() {
+			
+			
+    		var menu = document.getElementById("menu");
+    		
+    		if (menu.className == "") 
+    		{
+    			
+    			var alturaMenu = menu.offsetHeight;
+        		menu.className += "menuAbierto";
+        		
+        		
+    	
+    			var elementosMenu = menu.getElementsByTagName("li");
+    	
+    			var i;
+    			for (i=1; i < elementosMenu.length; i++) 
+    			{
+    				elementosMenu[i].onclick = function() {cerrarMenu();};
+    				
+    				var enlace = elementosMenu[i].getElementsByTagName("a")[0];
+    				
+    				
+    				if (i == 1)
+    				{
+    					enlace.onclick = function (event) {
+    														event.preventDefault();
+    														document.location.href = this.href;
+    														document.documentElement.scrollTop = 0;	
+    					
+    														}
+    				}
+    				else 
+    				{
+    					enlace.onclick = function (event) {
+    														event.preventDefault();
+    														document.location.href = this.href;
+    														document.documentElement.scrollTop -= alturaMenu+80;	
+    					
+    														}
+    				}	
+    		
+
+    			}
+    			
+    			var icono = elementosMenu[0].getElementsByTagName("a")[0];
+    			
+    			icono.onclick = function() {cerrarMenu();};
+    			
+    			icono.getElementsByTagName("i")[0].className = "fa fa-close";
+        		
+    		} 
+		}
+	
+		function cerrarMenu() {
+	    		var menu = document.getElementById("menu");
+	    		
+	    		if (menu.className == "menuAbierto") {
+	        		menu.className = "";
+	        		
+	        		
+	    	
+	    			var elementosMenu = menu.getElementsByTagName("li");
+	    	
+	    			var i;
+	    			for (i=1; i < elementosMenu.length; i++) 
+	    			{
+	    				elementosMenu[i].onclick = function() {};
+	    			}
+	    			
+	    			
+	    			var icono = elementosMenu[0].getElementsByTagName("a")[0];
+	    			
+	    			icono.onclick = function() {abrirMenu();};
+	    			
+	    			icono.getElementsByTagName("i")[0].className = "fa fa-bars";
+	    		}
+	
+		}
+		
+		
+		</script>
+	
+	</head>
+	
+	<body onload="inicio();">
+	
+		<div id="principal">
+		
+			<div id ="cabecera">
+			
+				<h1>RPG MANIACS</h1>
+
+			</div>
+			
+			<div id ="menu">
+			
+			   <ul>
+			   
+			<li>
+			<a href="#" class="iconoMenu" onclick="abrirMenu()">
+	    	<i class="fa fa-bars"></i>
+	  		</a>
+	  		</li>
+	  		
+		        <li><a href="index.html" >Inicio</a></li>
+		        <li><a href="subtema1.html" >RPG por turnos</a></li>
+		        <li><a href="subtema2.html" >RPG Acción</a></li>
+		        <li><a href="subtema3.html" >RPG Táctico</a></li>
+		       
+			   </ul>
+			   
+			</div>
+			
+			<div id ="cuerpo">
+			
+				<h2>RPG por turnos</h2>
+				<h3> Suikoden 2 </h3>
+				<img src="img/turnos1.jpg" width="700" height="500" alt="Suikoden 2">
+				<p style="text-align: center;">Suikoden II tiene lugar años después de los sucesos del Suikoden original, y se centra en la invasión por el reino de Highland de las ciudades estado de Jowston.  Él es el hijo adoptivo de Genkaku, un héroe que salvó la ciudad-estado de Jowston en una guerra contra Highlands años atrás. El protagonista y su mejor amigo, Jowy Atreides, obtienen sendas mitades de la Runa del comienzo, una de las 27 Runas verdaderas del universo Suikoden, y se ven atrapados en las intrigas de la invasión y el destino oscuro de aquellos que portan las mitades de esa runa.</p>
+				
+				
+				<h3> Final Fantasy X </h3>
+				<img src="img/turnos2.jpg" width="700" height="500" alt="Final Fantasy X">
+				<p style="text-align: center;">Final Fantasy X nos pone en la piel de Tidus, un joven alegre y carismático que vive en Zanarkand y que es la estrella del Blitzball y juega en los Zanarkand Abes. Hasta que un día cuando se encontraba jugando un partido aparece un extraño ser que destruye toda la ciudad, se hace llamar Sinh. En mitad del caos, aparece otro personaje, Auron, que ayuda a escapar a Tidus introduciéndose en una esfera (como un vórtice), después de esto Tidus aparece en unas ruinas rodeado de escombros, y busca comida y refugio dentro de un templo, donde es "rescatada" por una joven llamada Rikku y esta lo traslada a un barco, le proporciona comida y le dice que Zanarkand fue destruida hace 1000 años por Sinh, y en ese momento aparece otra vez Sinh, que ataca al barco y hace que Tidus se quede inconsciente en mitad del mar, después recobra el conocimiento cerca de una isla, en la que conoce a Wakka, que también le dice que Zanarkand fue destruida hace 1000 años. Desde ese momento emprenderá una aventura y deberá descubrir como regresar a Zanarkand y como librar al mundo de Sinh, el causante de todos los problemas.<p/>
+				
+				
+				<h3> El Señor De Los Anillos: La Tercera Edad </h3>
+				<img src="img/turnos3.jpg" width="700" height="500" alt="El Señor De Los Anillos: La Tercera Edad">
+				<p style="text-align: center;">La historia sigue al capitán de Gondor Berethor, enviado por el senescal de Gondor Denethor, en busca del desaparecido Boromir. Su periplo se inicia en la región de Eregión, en los bosques cercanos a Moria. Allí será atacado por unos Nazgul y sobrevivirá gracias a la intervención de la elfo Idrial. Así, su viaje será una especie de "vuelta" a los entornos ya visitados por la comunidad del anillo en su objetivo de acabar con Sauron.</p>
+				
+				
+			</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<div id="contacto">
+
+	
+	<script>
+		function validar() {
+		
+		
+			var nombre = document.getElementsByName("Nombre")[0].value;
+    
+    		if(nombre.length == 0)
+    		{
+    			alert("Debe rellenar el nombre");
+        		return false;
+    		}
+			if(!(/^[A-Za-zÀ-ÿ\_\-\.\s\xF1\xD1]+$/.test(nombre)))
+    		{
+				alert("El nombre solo puede contener letras, espacios y guiones");
+				return false; 		
+    		}
+	
+	
+	
+	
+	
+			var apellido = document.getElementsByName("Apellidos")[0].value;
+    
+    		if(apellido.length == 0)
+    		{
+    			alert("Debe rellenar el apellido");
+        		return false;
+    		}
+    		if(!(/^[A-Za-zÀ-ÿ\_\-\.\s\xF1\xD1]+$/.test(nombre)))
+    		{
+				alert("El nombre solo puede contener letras, espacios y guiones");
+				return false; 		
+    		}
+    		
+    		
+    		
+    		
+    		
+    		
+    		var email = document.getElementsByName("Email")[0].value;
+    
+    		if(email.length == 0)
+    		{
+    			alert("Debe rellenar el email");
+        		return false;
+    		}
+    		
+    		if(!(/^\w+([\.\+\-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(email)))
+    		{
+				alert("Dirección email incorrecta");
+				return false; 		
+    		}
+    		
+    		
+    		
+    		
+    		
+    		
+    		var mensaje = document.getElementsByName("Mensaje")[0].value;
+    
+    		if(mensaje.length == 0)
+    		{
+    			alert("Debe rellenar el mensaje a enviar");
+        		return false;
+    		}
+    		
+    		
+    		
+    		
+    		var genero = document.getElementsByName("genero");
+    
+    		var i;
+    		var correcto = false;
+    		for(i=0; i<genero.length; i++)
+    		{
+    			if(genero[i].checked)
+    			{
+        			correcto = true;
+    			}
+    		}
+    
+    		if (correcto == false)
+    		{
+    			alert("Debe pulsar algún botón de opción");
+    			return false;
+    		}
+    		
+    		
+    		
+    	}
+	
+
+
+	</script>
+
+
+
+	<form action="" onsubmit="return validar()">
+	
+	Nombre: <br>	
+	<input type="text" name="Nombre" value="">
+  <br>
+  <br>
+   Apellidos: <br>
+   <input type="text" name="Apellidos" value="">
+  <br>
+  <br>
+  Email: <br>
+  <input type="text" name="Email" value="">
+  <br>
+  <br>
+  Mensaje: <br>
+  <textarea name="Mensaje" rows="10" cols="30">
+  
+  </textarea>
+  <br>
+  <br>
+  <br>
+  
+  
+  Género Favorito:
+  <br>
+  <input type="radio" name="genero" value="">RPG Acción <br>
+  <input type="radio" name="genero" value="">RPG Turnos <br>
+  <input type="radio" name="genero" value="">RPG Táctico <br>
+  
+  
+
+  <br>
+  <br>
+  
+	<input type="submit" value="Envio">	
+	
+	</form>
+	
+	
+	</div>			
+			
+			
+			
+			
+			<div id ="pie">
+				
+				<p>&copy; Página realizada por D.J.R. en 2018.</p>
+				
+			</div>
+
+
+
+	
+		</div>
+
+		<button onclick="subir()" id="boton1" title="Ir hacia arriba">
+			<img src="img/flecha1.png" alt="">
+		</button>
+
+	
+	</body>
+
+</html>
